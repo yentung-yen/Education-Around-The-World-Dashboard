@@ -1,292 +1,583 @@
-﻿Country,Year,urban_illiterate_pop,rural_illiterate_pop
-Afghanistan,2011,470675,2604567
-Albania,2011,3466,3040
-Albania,2012,1020,3209
-Angola,2014,408820,755693
-Armenia,2011,220,547
-Armenia,2016,176,438
-Armenia,2017,168,418
-Armenia,2020,129,310
-Azerbaijan,2010,404,508
-Azerbaijan,2011,406,611
-Azerbaijan,2012,408,718
-Azerbaijan,2013,308,515
-Azerbaijan,2014,309,412
-Azerbaijan,2015,408,518
-Azerbaijan,2016,409,518
-Azerbaijan,2017,412,517
-Azerbaijan,2019,408,515
-Bangladesh,2011,1822388,4723621
-Bangladesh,2012,1833484,4796484
-Bangladesh,2013,873243,3484962
-Bangladesh,2014,804075,3562327
-Bangladesh,2015,1140487,2552632
-Bangladesh,2016,889235,1491867
-Bangladesh,2017,808682,1357999
-Bangladesh,2018,775846,1277112
-Bangladesh,2019,633350,947266
-Bangladesh,2020,642241,1057801
-Belarus,2019,639,498
-Bhutan,2012,4084,17039
-Bhutan,2017,2669,7737
-Bolivia,2011,9645,9810
-Bolivia,2012,10055,9993
-Bolivia,2015,5672,6875
-Bolivia,2020,6665,3082
-Bosnia and Herzegovina,2013,602,974
-Brazil,2010,517938,344961
-Brazil,2011,336825,186517
-Brazil,2012,285620,190421
-Brazil,2013,287323,148600
-Brazil,2014,255929,142087
-Brazil,2015,224689,130312
-Brazil,2016,202539,101155
-Brazil,2017,195009,92486
-Brazil,2018,178417,91524
-Brunei,2011,324,138
-Bulgaria,2011,10710,7602
-Burkina Faso,2014,227702,1500515
-Burkina Faso,2018,160184,1454172
-Burundi,2014,23784,382990
-Burundi,2017,12070,235570
-Cambodia,2014,21309,292106
-Cambodia,2015,17034,232067
-Cameroon,2010,117148,682939
-Cape Verde,2012,1036,1045
-Cape Verde,2015,998,938
-Chad,2016,322880,1698219
-Chile,2011,14518,2637
-Chile,2013,21855,5453
-Chile,2015,15644,2557
-Chile,2017,23385,4127
-Colombia,2010,74757,84979
-Colombia,2011,71281,77714
-Colombia,2014,66406,58858
-Colombia,2015,64974,61000
-Colombia,2016,62674,52681
-Colombia,2018,55731,44676
-Colombia,2019,57608,45107
-Colombia,2020,50437,35741
-Costa Rica,2011,3916,3466
-Côte d'Ivoire,2014,890132,1283096
-Côte d'Ivoire,2019,164866,653689
-Cuba,2012,1204,729
-Cyprus,2011,228,113
-Democratic Republic of the Congo,2012,548580,1553107
-Democratic Republic of the Congo,2016,386966,1794102
-Dominican Republic,2010,27094,32711
-Dominican Republic,2011,24387,31268
-Dominican Republic,2012,26865,29639
-Dominican Republic,2013,21274,26643
-Dominican Republic,2014,17250,27071
-Dominican Republic,2015,22599,23185
-Dominican Republic,2016,14516,7809
-Ecuador,2010,16662,21392
-Ecuador,2011,17066,20393
-Ecuador,2012,18708,15138
-Ecuador,2013,23919,16949
-Ecuador,2014,16906,9822
-Ecuador,2015,14000,12064
-Ecuador,2016,16548,12001
-Ecuador,2017,12366,10483
-Ecuador,2020,24799,13108
-Egypt,2010,579570,1493646
-Egypt,2012,495449,1285372
-Egypt,2013,327468,994668
-El Salvador,2010,15328,33173
-El Salvador,2011,13720,29095
-El Salvador,2013,12178,23355
-El Salvador,2015,8903,17674
-El Salvador,2017,10559,15412
-El Salvador,2018,11593,14070
-El Salvador,2019,9223,11491
-El Salvador,2020,9038,9035
-Gambia,2015,58006,82189
-Georgia,2014,570,1033
-Ghana,2010,213704,496191
-Guatemala,2012,42742,160359
-Guatemala,2013,57588,207516
-Guatemala,2014,52310,137968
-Guatemala,2018,64134,132034
-Guinea,2010,346193,1136081
-Guinea,2014,319347,919505
-Guinea,2018,270093,880925
-Honduras,2010,15735,67928
-Honduras,2011,16195,55968
-Honduras,2012,17587,73231
-Honduras,2013,18826,72782
-Honduras,2014,20665,61565
-Honduras,2015,20035,57650
-Honduras,2016,24380,52791
-Honduras,2018,17743,52818
-Honduras,2019,21044,59716
-India,2011,6493616,26170248
-Indonesia,2011,108190,405415
-Indonesia,2014,6810,132245
-Indonesia,2015,12275,132963
-Indonesia,2016,18570,128708
-Indonesia,2018,18970,113993
-Indonesia,2020,12822,88543
-Iran,2012,144781,145429
-Iran,2013,140869,165729
-Iran,2014,127840,142452
-Iran,2016,113475,115464
-Jordan,2010,13946,3492
-Jordan,2011,10324,2266
-Jordan,2012,11513,2528
-Kuwait,2010,36,4979
-Kuwait,2012,27,5365
-Kuwait,2015,21,3141
-Kuwait,2017,18,3173
-Kuwait,2018,20,3819
-Laos,2015,11626,94611
-Latvia,2011,185,275
-Lithuania,2011,367,267
-Madagascar,2012,38101,995712
-Madagascar,2018,60497,1027889
-Maldives,2014,173,514
-Maldives,2016,187,1029
-Mali,2010,368834,1212075
-Mali,2011,287951,1393810
-Mali,2015,272403,1395926
-Mali,2018,265521,1565844
-Mali,2020,320704,1815764
-Malta,2011,602,28
-Marshall Islands,2011,121,58
-Mauritania,2013,56784,159974
-Mauritius,2011,1073,2675
-Mexico,2010,162264,169339
-Mexico,2011,161128,168240
-Mexico,2012,125383,117688
-Mexico,2013,151603,160752
-Mexico,2014,112158,106494
-Mexico,2015,113448,118589
-Mexico,2016,101068,93850
-Mexico,2017,96357,97114
-Mexico,2018,87362,63551
-Mexico,2020,107617,95820
-Mongolia,2010,3159,5923
-Mongolia,2020,2395,1741
-Montenegro,2011,541,158
-Morocco,2012,100174,437555
-Mozambique,2015,254716,1318173
-Mozambique,2017,251323,1408013
-Myanmar,2019,87380,361983
-Namibia,2011,4759,21369
-Nepal,2011,63866,750057
-Niger,2012,164941,1788392
-Oman,2010,9467,5136
-Oman,2015,3886,1432
-Pakistan,2010,2436781,8310088
-Pakistan,2011,2522490,8579607
-Pakistan,2012,2442401,8170966
-Pakistan,2013,2530579,8641769
-Pakistan,2014,2361843,8498293
-Pakistan,2017,2342269,8191944
-Pakistan,2018,2592352,9007150
-Pakistan,2019,2512951,9034371
-Palestine,2010,5879,968
-Palestine,2011,5651,604
-Palestine,2012,5978,653
-Palestine,2013,5178,1026
-Palestine,2014,5015,1144
-Palestine,2015,5332,1161
-Palestine,2016,5044,1159
-Palestine,2017,5234,1663
-Palestine,2018,4885,1794
-Palestine,2019,5572,1155
-Palestine,2020,6524,1273
-Panama,2010,3254,11646
-Panama,2018,1977,4274
-Panama,2019,1824,5998
-Paraguay,2010,8453,9631
-Paraguay,2012,6862,17271
-Paraguay,2013,6994,7796
-Paraguay,2014,5694,11534
-Paraguay,2015,12121,6047
-Paraguay,2016,9001,11952
-Paraguay,2018,11521,11535
-Paraguay,2019,11395,10707
-Paraguay,2020,9115,9012
-Peru,2012,29313,42397
-Peru,2014,30153,25675
-Peru,2015,27077,26721
-Peru,2016,29531,31217
-Peru,2017,24003,26947
-Peru,2018,28845,22884
-Peru,2020,16694,12059
-Philippines,2013,99176,266942
-Philippines,2015,56586,125876
-Philippines,2019,111290,220085
-Portugal,2011,3843,2621
-Republic of Moldova,2014,585,570
-Romania,2011,9672,16671
-Russia,2010,29249,32904
-Rwanda,2010,247,483428
-Rwanda,2014,38952,291840
-Rwanda,2018,42767,284139
-Samoa,2011,29,234
-Sao Tome and Principe,2012,718,439
-Senegal,2011,294215,598489
-Senegal,2013,411888,773097
-Senegal,2017,330121,592410
-Serbia,2011,4470,3858
-Serbia,2019,3,3
-South Africa,2010,54819,86977
-South Africa,2011,57939,67678
-South Africa,2012,38041,77077
-South Africa,2014,45251,67733
-South Africa,2015,36686,68008
-South Africa,2017,198468,265634
-South Africa,2019,78582,78018
-Spain,2010,15104,4834
-Spain,2011,11731,2707
-Spain,2012,13835,1592
-Spain,2013,13213,2151
-Spain,2014,10464,2272
-Spain,2015,12501,3184
-Spain,2018,8674,4063
-Spain,2020,14489,2520
-Sri Lanka,2010,4997,54802
-Sri Lanka,2016,6670,34467
-Sri Lanka,2017,6526,29332
-Sri Lanka,2018,2633,35470
-Sri Lanka,2019,3737,28644
-Sri Lanka,2020,5923,30224
-Suriname,2012,672,1564
-Tanzania,2012,122750,1171395
-Tanzania,2015,131312,1285855
-Thailand,2010,166657,160652
-Thailand,2013,66723,94999
-Thailand,2015,78488,100442
-Thailand,2018,52291,124059
-Timor-Leste,2010,6426,39550
-Togo,2011,66991,191342
-Togo,2015,54140,170070
-Togo,2019,35657,153478
-Tonga,2011,38,70
-Tunisia,2014,21444,45626
-Turkey,2010,116458,107146
-Turkey,2011,85038,78488
-Turkey,2012,65015,60457
-Turkey,2013,79667,19659
-Turkey,2014,67393,15764
-Turkey,2015,54072,12094
-Uganda,2010,73748,748588
-Uganda,2012,188923,960837
-Uruguay,2010,6075,196
-Uruguay,2011,5550,350
-Uruguay,2012,5234,196
-Uruguay,2013,5367,196
-Uruguay,2014,5489,538
-Uruguay,2015,5325,232
-Uruguay,2016,4216,159
-Uruguay,2017,5261,213
-Uruguay,2018,5586,111
-Uruguay,2019,4707,208
-Uzbekistan,2016,2,0
-Uzbekistan,2018,2,0
-Uzbekistan,2019,2,0
-Venezuela,2011,87603,43181
-Vietnam,2019,26285,160909
-Zambia,2010,41316,266237
+﻿Country,Year,illiterate_pop,rural_or_urban
+Afghanistan,2011,470675,urban
+Albania,2011,3466,urban
+Albania,2012,1020,urban
+Angola,2014,408820,urban
+Armenia,2011,220,urban
+Armenia,2016,176,urban
+Armenia,2017,168,urban
+Armenia,2020,129,urban
+Azerbaijan,2010,404,urban
+Azerbaijan,2011,406,urban
+Azerbaijan,2012,408,urban
+Azerbaijan,2013,308,urban
+Azerbaijan,2014,309,urban
+Azerbaijan,2015,408,urban
+Azerbaijan,2016,409,urban
+Azerbaijan,2017,412,urban
+Azerbaijan,2019,408,urban
+Bangladesh,2011,1822388,urban
+Bangladesh,2012,1833484,urban
+Bangladesh,2013,873243,urban
+Bangladesh,2014,804075,urban
+Bangladesh,2015,1140487,urban
+Bangladesh,2016,889235,urban
+Bangladesh,2017,808682,urban
+Bangladesh,2018,775846,urban
+Bangladesh,2019,633350,urban
+Bangladesh,2020,642241,urban
+Belarus,2019,639,urban
+Bhutan,2012,4084,urban
+Bhutan,2017,2669,urban
+Bolivia,2011,9645,urban
+Bolivia,2012,10055,urban
+Bolivia,2015,5672,urban
+Bolivia,2020,6665,urban
+Bosnia and Herzegovina,2013,602,urban
+Brazil,2010,517938,urban
+Brazil,2011,336825,urban
+Brazil,2012,285620,urban
+Brazil,2013,287323,urban
+Brazil,2014,255929,urban
+Brazil,2015,224689,urban
+Brazil,2016,202539,urban
+Brazil,2017,195009,urban
+Brazil,2018,178417,urban
+Brunei,2011,324,urban
+Bulgaria,2011,10710,urban
+Burkina Faso,2014,227702,urban
+Burkina Faso,2018,160184,urban
+Burundi,2014,23784,urban
+Burundi,2017,12070,urban
+Cambodia,2014,21309,urban
+Cambodia,2015,17034,urban
+Cameroon,2010,117148,urban
+Cape Verde,2012,1036,urban
+Cape Verde,2015,998,urban
+Chad,2016,322880,urban
+Chile,2011,14518,urban
+Chile,2013,21855,urban
+Chile,2015,15644,urban
+Chile,2017,23385,urban
+Colombia,2010,74757,urban
+Colombia,2011,71281,urban
+Colombia,2014,66406,urban
+Colombia,2015,64974,urban
+Colombia,2016,62674,urban
+Colombia,2018,55731,urban
+Colombia,2019,57608,urban
+Colombia,2020,50437,urban
+Costa Rica,2011,3916,urban
+Côte d'Ivoire,2014,890132,urban
+Côte d'Ivoire,2019,164866,urban
+Cuba,2012,1204,urban
+Cyprus,2011,228,urban
+Democratic Republic of the Congo,2012,548580,urban
+Democratic Republic of the Congo,2016,386966,urban
+Dominican Republic,2010,27094,urban
+Dominican Republic,2011,24387,urban
+Dominican Republic,2012,26865,urban
+Dominican Republic,2013,21274,urban
+Dominican Republic,2014,17250,urban
+Dominican Republic,2015,22599,urban
+Dominican Republic,2016,14516,urban
+Ecuador,2010,16662,urban
+Ecuador,2011,17066,urban
+Ecuador,2012,18708,urban
+Ecuador,2013,23919,urban
+Ecuador,2014,16906,urban
+Ecuador,2015,14000,urban
+Ecuador,2016,16548,urban
+Ecuador,2017,12366,urban
+Ecuador,2020,24799,urban
+Egypt,2010,579570,urban
+Egypt,2012,495449,urban
+Egypt,2013,327468,urban
+El Salvador,2010,15328,urban
+El Salvador,2011,13720,urban
+El Salvador,2013,12178,urban
+El Salvador,2015,8903,urban
+El Salvador,2017,10559,urban
+El Salvador,2018,11593,urban
+El Salvador,2019,9223,urban
+El Salvador,2020,9038,urban
+Gambia,2015,58006,urban
+Georgia,2014,570,urban
+Ghana,2010,213704,urban
+Guatemala,2012,42742,urban
+Guatemala,2013,57588,urban
+Guatemala,2014,52310,urban
+Guatemala,2018,64134,urban
+Guinea,2010,346193,urban
+Guinea,2014,319347,urban
+Guinea,2018,270093,urban
+Honduras,2010,15735,urban
+Honduras,2011,16195,urban
+Honduras,2012,17587,urban
+Honduras,2013,18826,urban
+Honduras,2014,20665,urban
+Honduras,2015,20035,urban
+Honduras,2016,24380,urban
+Honduras,2018,17743,urban
+Honduras,2019,21044,urban
+India,2011,6493616,urban
+Indonesia,2011,108190,urban
+Indonesia,2014,6810,urban
+Indonesia,2015,12275,urban
+Indonesia,2016,18570,urban
+Indonesia,2018,18970,urban
+Indonesia,2020,12822,urban
+Iran,2012,144781,urban
+Iran,2013,140869,urban
+Iran,2014,127840,urban
+Iran,2016,113475,urban
+Jordan,2010,13946,urban
+Jordan,2011,10324,urban
+Jordan,2012,11513,urban
+Kuwait,2010,36,urban
+Kuwait,2012,27,urban
+Kuwait,2015,21,urban
+Kuwait,2017,18,urban
+Kuwait,2018,20,urban
+Laos,2015,11626,urban
+Latvia,2011,185,urban
+Lithuania,2011,367,urban
+Madagascar,2012,38101,urban
+Madagascar,2018,60497,urban
+Maldives,2014,173,urban
+Maldives,2016,187,urban
+Mali,2010,368834,urban
+Mali,2011,287951,urban
+Mali,2015,272403,urban
+Mali,2018,265521,urban
+Mali,2020,320704,urban
+Malta,2011,602,urban
+Marshall Islands,2011,121,urban
+Mauritania,2013,56784,urban
+Mauritius,2011,1073,urban
+Mexico,2010,162264,urban
+Mexico,2011,161128,urban
+Mexico,2012,125383,urban
+Mexico,2013,151603,urban
+Mexico,2014,112158,urban
+Mexico,2015,113448,urban
+Mexico,2016,101068,urban
+Mexico,2017,96357,urban
+Mexico,2018,87362,urban
+Mexico,2020,107617,urban
+Mongolia,2010,3159,urban
+Mongolia,2020,2395,urban
+Montenegro,2011,541,urban
+Morocco,2012,100174,urban
+Mozambique,2015,254716,urban
+Mozambique,2017,251323,urban
+Myanmar,2019,87380,urban
+Namibia,2011,4759,urban
+Nepal,2011,63866,urban
+Niger,2012,164941,urban
+Oman,2010,9467,urban
+Oman,2015,3886,urban
+Pakistan,2010,2436781,urban
+Pakistan,2011,2522490,urban
+Pakistan,2012,2442401,urban
+Pakistan,2013,2530579,urban
+Pakistan,2014,2361843,urban
+Pakistan,2017,2342269,urban
+Pakistan,2018,2592352,urban
+Pakistan,2019,2512951,urban
+Palestine,2010,5879,urban
+Palestine,2011,5651,urban
+Palestine,2012,5978,urban
+Palestine,2013,5178,urban
+Palestine,2014,5015,urban
+Palestine,2015,5332,urban
+Palestine,2016,5044,urban
+Palestine,2017,5234,urban
+Palestine,2018,4885,urban
+Palestine,2019,5572,urban
+Palestine,2020,6524,urban
+Panama,2010,3254,urban
+Panama,2018,1977,urban
+Panama,2019,1824,urban
+Paraguay,2010,8453,urban
+Paraguay,2012,6862,urban
+Paraguay,2013,6994,urban
+Paraguay,2014,5694,urban
+Paraguay,2015,12121,urban
+Paraguay,2016,9001,urban
+Paraguay,2018,11521,urban
+Paraguay,2019,11395,urban
+Paraguay,2020,9115,urban
+Peru,2012,29313,urban
+Peru,2014,30153,urban
+Peru,2015,27077,urban
+Peru,2016,29531,urban
+Peru,2017,24003,urban
+Peru,2018,28845,urban
+Peru,2020,16694,urban
+Philippines,2013,99176,urban
+Philippines,2015,56586,urban
+Philippines,2019,111290,urban
+Portugal,2011,3843,urban
+Republic of Moldova,2014,585,urban
+Romania,2011,9672,urban
+Russia,2010,29249,urban
+Rwanda,2010,247,urban
+Rwanda,2014,38952,urban
+Rwanda,2018,42767,urban
+Samoa,2011,29,urban
+Sao Tome and Principe,2012,718,urban
+Senegal,2011,294215,urban
+Senegal,2013,411888,urban
+Senegal,2017,330121,urban
+Serbia,2011,4470,urban
+Serbia,2019,3,urban
+South Africa,2010,54819,urban
+South Africa,2011,57939,urban
+South Africa,2012,38041,urban
+South Africa,2014,45251,urban
+South Africa,2015,36686,urban
+South Africa,2017,198468,urban
+South Africa,2019,78582,urban
+Spain,2010,15104,urban
+Spain,2011,11731,urban
+Spain,2012,13835,urban
+Spain,2013,13213,urban
+Spain,2014,10464,urban
+Spain,2015,12501,urban
+Spain,2018,8674,urban
+Spain,2020,14489,urban
+Sri Lanka,2010,4997,urban
+Sri Lanka,2016,6670,urban
+Sri Lanka,2017,6526,urban
+Sri Lanka,2018,2633,urban
+Sri Lanka,2019,3737,urban
+Sri Lanka,2020,5923,urban
+Suriname,2012,672,urban
+Tanzania,2012,122750,urban
+Tanzania,2015,131312,urban
+Thailand,2010,166657,urban
+Thailand,2013,66723,urban
+Thailand,2015,78488,urban
+Thailand,2018,52291,urban
+Timor-Leste,2010,6426,urban
+Togo,2011,66991,urban
+Togo,2015,54140,urban
+Togo,2019,35657,urban
+Tonga,2011,38,urban
+Tunisia,2014,21444,urban
+Turkey,2010,116458,urban
+Turkey,2011,85038,urban
+Turkey,2012,65015,urban
+Turkey,2013,79667,urban
+Turkey,2014,67393,urban
+Turkey,2015,54072,urban
+Uganda,2010,73748,urban
+Uganda,2012,188923,urban
+Uruguay,2010,6075,urban
+Uruguay,2011,5550,urban
+Uruguay,2012,5234,urban
+Uruguay,2013,5367,urban
+Uruguay,2014,5489,urban
+Uruguay,2015,5325,urban
+Uruguay,2016,4216,urban
+Uruguay,2017,5261,urban
+Uruguay,2018,5586,urban
+Uruguay,2019,4707,urban
+Uzbekistan,2016,2,urban
+Uzbekistan,2018,2,urban
+Uzbekistan,2019,2,urban
+Venezuela,2011,87603,urban
+Vietnam,2019,26285,urban
+Zambia,2010,41316,urban
+Afghanistan,2011,2604567,rural
+Albania,2011,3040,rural
+Albania,2012,3209,rural
+Angola,2014,755693,rural
+Armenia,2011,547,rural
+Armenia,2016,438,rural
+Armenia,2017,418,rural
+Armenia,2020,310,rural
+Azerbaijan,2010,508,rural
+Azerbaijan,2011,611,rural
+Azerbaijan,2012,718,rural
+Azerbaijan,2013,515,rural
+Azerbaijan,2014,412,rural
+Azerbaijan,2015,518,rural
+Azerbaijan,2016,518,rural
+Azerbaijan,2017,517,rural
+Azerbaijan,2019,515,rural
+Bangladesh,2011,4723621,rural
+Bangladesh,2012,4796484,rural
+Bangladesh,2013,3484962,rural
+Bangladesh,2014,3562327,rural
+Bangladesh,2015,2552632,rural
+Bangladesh,2016,1491867,rural
+Bangladesh,2017,1357999,rural
+Bangladesh,2018,1277112,rural
+Bangladesh,2019,947266,rural
+Bangladesh,2020,1057801,rural
+Belarus,2019,498,rural
+Bhutan,2012,17039,rural
+Bhutan,2017,7737,rural
+Bolivia,2011,9810,rural
+Bolivia,2012,9993,rural
+Bolivia,2015,6875,rural
+Bolivia,2020,3082,rural
+Bosnia and Herzegovina,2013,974,rural
+Brazil,2010,344961,rural
+Brazil,2011,186517,rural
+Brazil,2012,190421,rural
+Brazil,2013,148600,rural
+Brazil,2014,142087,rural
+Brazil,2015,130312,rural
+Brazil,2016,101155,rural
+Brazil,2017,92486,rural
+Brazil,2018,91524,rural
+Brunei,2011,138,rural
+Bulgaria,2011,7602,rural
+Burkina Faso,2014,1500515,rural
+Burkina Faso,2018,1454172,rural
+Burundi,2014,382990,rural
+Burundi,2017,235570,rural
+Cambodia,2014,292106,rural
+Cambodia,2015,232067,rural
+Cameroon,2010,682939,rural
+Cape Verde,2012,1045,rural
+Cape Verde,2015,938,rural
+Chad,2016,1698219,rural
+Chile,2011,2637,rural
+Chile,2013,5453,rural
+Chile,2015,2557,rural
+Chile,2017,4127,rural
+Colombia,2010,84979,rural
+Colombia,2011,77714,rural
+Colombia,2014,58858,rural
+Colombia,2015,61000,rural
+Colombia,2016,52681,rural
+Colombia,2018,44676,rural
+Colombia,2019,45107,rural
+Colombia,2020,35741,rural
+Costa Rica,2011,3466,rural
+Côte d'Ivoire,2014,1283096,rural
+Côte d'Ivoire,2019,653689,rural
+Cuba,2012,729,rural
+Cyprus,2011,113,rural
+Democratic Republic of the Congo,2012,1553107,rural
+Democratic Republic of the Congo,2016,1794102,rural
+Dominican Republic,2010,32711,rural
+Dominican Republic,2011,31268,rural
+Dominican Republic,2012,29639,rural
+Dominican Republic,2013,26643,rural
+Dominican Republic,2014,27071,rural
+Dominican Republic,2015,23185,rural
+Dominican Republic,2016,7809,rural
+Ecuador,2010,21392,rural
+Ecuador,2011,20393,rural
+Ecuador,2012,15138,rural
+Ecuador,2013,16949,rural
+Ecuador,2014,9822,rural
+Ecuador,2015,12064,rural
+Ecuador,2016,12001,rural
+Ecuador,2017,10483,rural
+Ecuador,2020,13108,rural
+Egypt,2010,1493646,rural
+Egypt,2012,1285372,rural
+Egypt,2013,994668,rural
+El Salvador,2010,33173,rural
+El Salvador,2011,29095,rural
+El Salvador,2013,23355,rural
+El Salvador,2015,17674,rural
+El Salvador,2017,15412,rural
+El Salvador,2018,14070,rural
+El Salvador,2019,11491,rural
+El Salvador,2020,9035,rural
+Gambia,2015,82189,rural
+Georgia,2014,1033,rural
+Ghana,2010,496191,rural
+Guatemala,2012,160359,rural
+Guatemala,2013,207516,rural
+Guatemala,2014,137968,rural
+Guatemala,2018,132034,rural
+Guinea,2010,1136081,rural
+Guinea,2014,919505,rural
+Guinea,2018,880925,rural
+Honduras,2010,67928,rural
+Honduras,2011,55968,rural
+Honduras,2012,73231,rural
+Honduras,2013,72782,rural
+Honduras,2014,61565,rural
+Honduras,2015,57650,rural
+Honduras,2016,52791,rural
+Honduras,2018,52818,rural
+Honduras,2019,59716,rural
+India,2011,26170248,rural
+Indonesia,2011,405415,rural
+Indonesia,2014,132245,rural
+Indonesia,2015,132963,rural
+Indonesia,2016,128708,rural
+Indonesia,2018,113993,rural
+Indonesia,2020,88543,rural
+Iran,2012,145429,rural
+Iran,2013,165729,rural
+Iran,2014,142452,rural
+Iran,2016,115464,rural
+Jordan,2010,3492,rural
+Jordan,2011,2266,rural
+Jordan,2012,2528,rural
+Kuwait,2010,4979,rural
+Kuwait,2012,5365,rural
+Kuwait,2015,3141,rural
+Kuwait,2017,3173,rural
+Kuwait,2018,3819,rural
+Laos,2015,94611,rural
+Latvia,2011,275,rural
+Lithuania,2011,267,rural
+Madagascar,2012,995712,rural
+Madagascar,2018,1027889,rural
+Maldives,2014,514,rural
+Maldives,2016,1029,rural
+Mali,2010,1212075,rural
+Mali,2011,1393810,rural
+Mali,2015,1395926,rural
+Mali,2018,1565844,rural
+Mali,2020,1815764,rural
+Malta,2011,28,rural
+Marshall Islands,2011,58,rural
+Mauritania,2013,159974,rural
+Mauritius,2011,2675,rural
+Mexico,2010,169339,rural
+Mexico,2011,168240,rural
+Mexico,2012,117688,rural
+Mexico,2013,160752,rural
+Mexico,2014,106494,rural
+Mexico,2015,118589,rural
+Mexico,2016,93850,rural
+Mexico,2017,97114,rural
+Mexico,2018,63551,rural
+Mexico,2020,95820,rural
+Mongolia,2010,5923,rural
+Mongolia,2020,1741,rural
+Montenegro,2011,158,rural
+Morocco,2012,437555,rural
+Mozambique,2015,1318173,rural
+Mozambique,2017,1408013,rural
+Myanmar,2019,361983,rural
+Namibia,2011,21369,rural
+Nepal,2011,750057,rural
+Niger,2012,1788392,rural
+Oman,2010,5136,rural
+Oman,2015,1432,rural
+Pakistan,2010,8310088,rural
+Pakistan,2011,8579607,rural
+Pakistan,2012,8170966,rural
+Pakistan,2013,8641769,rural
+Pakistan,2014,8498293,rural
+Pakistan,2017,8191944,rural
+Pakistan,2018,9007150,rural
+Pakistan,2019,9034371,rural
+Palestine,2010,968,rural
+Palestine,2011,604,rural
+Palestine,2012,653,rural
+Palestine,2013,1026,rural
+Palestine,2014,1144,rural
+Palestine,2015,1161,rural
+Palestine,2016,1159,rural
+Palestine,2017,1663,rural
+Palestine,2018,1794,rural
+Palestine,2019,1155,rural
+Palestine,2020,1273,rural
+Panama,2010,11646,rural
+Panama,2018,4274,rural
+Panama,2019,5998,rural
+Paraguay,2010,9631,rural
+Paraguay,2012,17271,rural
+Paraguay,2013,7796,rural
+Paraguay,2014,11534,rural
+Paraguay,2015,6047,rural
+Paraguay,2016,11952,rural
+Paraguay,2018,11535,rural
+Paraguay,2019,10707,rural
+Paraguay,2020,9012,rural
+Peru,2012,42397,rural
+Peru,2014,25675,rural
+Peru,2015,26721,rural
+Peru,2016,31217,rural
+Peru,2017,26947,rural
+Peru,2018,22884,rural
+Peru,2020,12059,rural
+Philippines,2013,266942,rural
+Philippines,2015,125876,rural
+Philippines,2019,220085,rural
+Portugal,2011,2621,rural
+Republic of Moldova,2014,570,rural
+Romania,2011,16671,rural
+Russia,2010,32904,rural
+Rwanda,2010,483428,rural
+Rwanda,2014,291840,rural
+Rwanda,2018,284139,rural
+Samoa,2011,234,rural
+Sao Tome and Principe,2012,439,rural
+Senegal,2011,598489,rural
+Senegal,2013,773097,rural
+Senegal,2017,592410,rural
+Serbia,2011,3858,rural
+Serbia,2019,3,rural
+South Africa,2010,86977,rural
+South Africa,2011,67678,rural
+South Africa,2012,77077,rural
+South Africa,2014,67733,rural
+South Africa,2015,68008,rural
+South Africa,2017,265634,rural
+South Africa,2019,78018,rural
+Spain,2010,4834,rural
+Spain,2011,2707,rural
+Spain,2012,1592,rural
+Spain,2013,2151,rural
+Spain,2014,2272,rural
+Spain,2015,3184,rural
+Spain,2018,4063,rural
+Spain,2020,2520,rural
+Sri Lanka,2010,54802,rural
+Sri Lanka,2016,34467,rural
+Sri Lanka,2017,29332,rural
+Sri Lanka,2018,35470,rural
+Sri Lanka,2019,28644,rural
+Sri Lanka,2020,30224,rural
+Suriname,2012,1564,rural
+Tanzania,2012,1171395,rural
+Tanzania,2015,1285855,rural
+Thailand,2010,160652,rural
+Thailand,2013,94999,rural
+Thailand,2015,100442,rural
+Thailand,2018,124059,rural
+Timor-Leste,2010,39550,rural
+Togo,2011,191342,rural
+Togo,2015,170070,rural
+Togo,2019,153478,rural
+Tonga,2011,70,rural
+Tunisia,2014,45626,rural
+Turkey,2010,107146,rural
+Turkey,2011,78488,rural
+Turkey,2012,60457,rural
+Turkey,2013,19659,rural
+Turkey,2014,15764,rural
+Turkey,2015,12094,rural
+Uganda,2010,748588,rural
+Uganda,2012,960837,rural
+Uruguay,2010,196,rural
+Uruguay,2011,350,rural
+Uruguay,2012,196,rural
+Uruguay,2013,196,rural
+Uruguay,2014,538,rural
+Uruguay,2015,232,rural
+Uruguay,2016,159,rural
+Uruguay,2017,213,rural
+Uruguay,2018,111,rural
+Uruguay,2019,208,rural
+Uzbekistan,2016,0,rural
+Uzbekistan,2018,0,rural
+Uzbekistan,2019,0,rural
+Venezuela,2011,43181,rural
+Vietnam,2019,160909,rural
+Zambia,2010,266237,rural
