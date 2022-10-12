@@ -1,0 +1,65 @@
+{
+  "config": {"view": {"stroke": null}},
+  "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 750,
+  "height": 400,
+  "padding": 20,
+  "data": {
+    "url": "https://raw.githubusercontent.com/y-tu/FIT3179-A2/main/data/pri_complete_rate_VS_unemployment_rate_VS_pop.csv"
+  },
+
+  "params":[
+    {
+      "name": "continent_highlight",
+      "select": {"type": "point", "fields": ["Continent"]},
+      "bind": "legend"
+    },
+    {
+      "name": "Year_selection",
+      "value": 2015,
+      "bind": {
+        "input": "range",
+        "min": 2000,
+        "max": 2017,
+        "step": 1,
+        "name": "Year:  "
+      }
+    }
+  ],
+
+  "transform": [{"filter": "datum.Year == Year_selection"}],
+
+
+  "layer":[
+  {
+  "mark": "circle",
+  "encoding": {
+    "x": {"field": "unemployment_rate", "type": "quantitative","title": "Unemployment Rate (% of total labor force)",
+    "axis": {"domain": true, "grid": false, "ticks": true, "titleFontSize": 13, "labelFont": "Open Sans", "labelPadding": 5, "titlePadding": 10}},
+    "y": {
+      "field": "pri_completion_rate",
+      "type": "quantitative",
+      "title": "Primary Completion Rate (% of relevant age group)",
+      "axis": {"domain": true, "grid": false, "ticks": true, "titleFontSize": 13, "labelFont": "Open Sans", "labelPadding": 5, "titlePadding": 10}},
+    "color": {"field": "Continent", "type": "nominal","legend":{"padding": 10}},
+    "size": {"field": "Pop_0_14", "type": "quantitative", "title": "Population Proportion Aged 0-14 (%)","legend":{"titleLimit":500, "padding": 10}},
+    "opacity": {"condition": {"param": "continent_highlight", "value": 0.6},"value": 0.1},
+    "tooltip": [
+      {"field": "Country", "type": "nominal"},
+      {"field": "Year", "type": "quantitative"},
+      {"field": "unemployment_rate", "type": "quantitative", "format": ".2f","title": "Unemployment Rate (%)"},
+      {"field": "pri_completion_rate", "type": "quantitative", "format": ".2f","title": "Primary Completion Rate (%)"},
+      {"field": "Pop_0_14", "type": "quantitative", "format": ".2f", "title": "Population size"},
+      {"field": "Continent", "type": "nominal"}
+    ]
+  }
+  }
+  ]
+  
+
+
+
+ 
+    
+  
+}

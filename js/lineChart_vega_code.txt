@@ -1,0 +1,106 @@
+{
+  "config": {"view": {"stroke": null}},
+  "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 750,
+  "height": 400,
+  "padding": 20,
+  "data": {
+    "url": "https://raw.githubusercontent.com/y-tu/FIT3179-Homework-wk10/main/data/Government%20expenditure%20per%20student%2C%20primary%20w%20continent_superFiltered.csv"
+  },
+
+
+  "params": [
+    { 
+    "name": "PartOfWorld_selection", "value": "Southeast Asia",
+    "bind": {"input" : "select", 
+    "options": ["North America","South America","EU_no","EU_yes","Africa","Asia","Southeast Asia","Oceania"], 
+    "labels":["North America","South America","Europe (Without EU Countries)","Europe (EU Countries)","Africa","Asia (Without ASEAN Countries)","Southeast Asia (ASEAN)","Oceania"], 
+    "name": "Part Of The World: "}},
+    { 
+    "name": "Year_Above", 
+    "value": 1997, 
+    "bind": {"input": "range", "min": 1997, "max": 2018, "step": 1, "name": "Year" }
+    },
+    { 
+    "name": "Year_Below", 
+    "value": 2018, 
+    "bind": {"input": "range", "min": 1997, "max": 2018, "step": 1, "name": "Range:" }
+    }
+    ],
+
+
+  "transform":[
+    {"filter": "PartOfWorld_selection == null || datum.Continent == PartOfWorld_selection"},
+    {"filter": {"timeUnit": "year", "field": "Year", "range": ["Year_Above", "Year_Below"]}}],
+
+
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal", 
+      "axis": {"domain": true, "grid": false, "ticks": true, "titleFontSize": 13, "labelFont": "Open Sans", "labelPadding": 5}},
+
+    "y": {
+      "field": "Government_expenditure_per_primary_student_(%)",
+      "type": "quantitative",
+      "title": "Government Expenditure  (% of GDP Per Capita)", 
+      "axis": {"domain": true, "grid": false, "ticks": true, "titleFontSize": 13, "labelFont": "Open Sans", "labelPadding": 5}},
+
+    "color": {"field": "Country Name", "type": "nominal", "title": "Country",
+    "legend": {"padding": 50, "labelFont": "Open Sans", "labelFontSize": 12, "labelLimit":500}},
+    "opacity": {"value": 0.7}
+  },
+
+
+  "layer": [{
+    "mark": "line"}, 
+    {
+    "params": [{
+      "name": "hover",
+      "select": {"type": "point", "on": "mouseover", "clear": "mouseout"}
+    }],
+    "mark": "circle",
+      "encoding":{
+        "x": {"field": "Year", "type": "temporal"},
+        "y": {"field": "Government_expenditure_per_primary_student_(%)", "type": "quantitative", 
+              "title": "Government Expenditure  (% of GDP Per Capita)"},
+        "color": {"field": "Country Name", "type": "nominal"},
+        "size": {"field": "Government_expenditure_per_primary_student_(%)", "type": "quantitative", "title": "Government Expenditure (%)",
+    "legend": {"padding": 50, "labelFont": "Open Sans", "labelFontSize": 12, "labelLimit":500}
+        },
+        "tooltip":[
+          {"field": "Country Name", "type": "nominal", "title": "Country"},
+          {"field": "Year", "type": "temporal", "format": "%Y"},
+          {"field": "Government_expenditure_per_primary_student_(%)", 
+          "type": "quantitative", "format": ".2f", "title": "Government expenditure (%)"},
+          {"field": "Continent", "type": "nominal"}],
+        "opacity": {
+        "condition": {"test": {"param": "hover", "empty": false}, "value": 1}, "value": 0}
+        }
+      },
+
+
+    { "mark": {"type": "circle", "color": "red", "opacity": 1
+      },
+      "encoding": {
+        "size": {"field": "Government_expenditure_per_primary_student_(%)","type": "quantitative"}
+      },
+      "transform": [
+        {"calculate": "datum['Government_expenditure_per_primary_student_(%)']*1", "as": "exp"},
+        {"window": [{"op": "rank", "as": "ranking"}],"sort": [{"field": "exp", "order": "descending"}]},
+        {"filter": "datum.ranking == 1"},
+        {"calculate": "'The highest expenditure throughout;  the whole period is: ' + datum['Government_expenditure_per_primary_student_(%)'] + '%'",
+                  "as": "text_annotation_raw"},
+        {"calculate": "split(datum.text_annotation_raw,';')", "as": "text_annotation"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 25,
+        "dy": -40,
+        "baseline": "middle",
+         "fontStyle": "italic",
+         "fontSize": 15,
+      },
+      "encoding": {"text": {"field": "text_annotation"}, "color": {"value": "grey"}}
+    }
+  ]
+  
+}

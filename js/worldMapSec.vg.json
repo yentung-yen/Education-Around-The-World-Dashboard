@@ -1,0 +1,278 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 500,
+  "height": 300,
+  "title": {
+    "text": "Secondary Education",
+    "fontSize": 14,
+    "align": "center",
+    "font": "Open Sans",
+    "frame": "group"
+  },
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/y-tu/FIT3179/main/Homework_wk9/js/oceans.topojson",
+      "format": {
+        "type": "topojson",
+        "feature": "oceans"
+      }
+    },
+    {
+      "name": "source_1",
+      "url": "https://raw.githubusercontent.com/y-tu/FIT3179/main/Homework_wk9/js/WorldMapWithGraticules.topojson",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_graticules_30"
+      }
+    },
+    {
+      "name": "source_2",
+      "url": "https://raw.githubusercontent.com/y-tu/FIT3179/main/Homework_wk9/js/ne_110m_admin_0_countries.topojson",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_admin_0_countries"
+      }
+    },
+    {
+      "name": "data_0",
+      "source": "source_2",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "'Data is not available in ' + datum.properties.NAME",
+          "as": "note"
+        }
+      ]
+    },
+    {
+      "name": "source_3",
+      "url": "https://raw.githubusercontent.com/y-tu/FIT3179-A2/main/data/School%20enrol%2C%20secondary%20(%25%20gross).csv",
+      "format": {
+        "type": "csv",
+        "delimiter": ","
+      },
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "source_2",
+          "key": "properties.NAME",
+          "fields": [
+            "Country Name"
+          ],
+          "as": [
+            "geo"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.Year == Year_selection"
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"geo\"])"
+        },
+        {
+          "type": "geojson",
+          "geojson": "geo",
+          "signal": "layer_3_geojson_0"
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"School_enrol_sec\"]) && isFinite(+datum[\"School_enrol_sec\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {
+        "signal": "[width, height]"
+      },
+      "fit": {
+        "signal": "[data('source_0'), data('source_1'), data('data_0'), layer_3_geojson_0]"
+      },
+      "type": "equalEarth"
+    }
+  ],
+  "signals": [
+    {
+      "name": "Year_selection",
+      "value": 2015,
+      "bind": {
+        "input": "range",
+        "min": 1970,
+        "max": 2021,
+        "step": 1,
+        "name": "Year:  "
+      }
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "shape",
+      "style": [
+        "geoshape"
+      ],
+      "from": {
+        "data": "source_0"
+      },
+      "encode": {
+        "update": {
+          "fill": {
+            "value": "skyblue"
+          },
+          "ariaRoleDescription": {
+            "value": "geoshape"
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "geoshape",
+          "projection": "projection"
+        }
+      ]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": [
+        "geoshape"
+      ],
+      "from": {
+        "data": "source_1"
+      },
+      "encode": {
+        "update": {
+          "fill": {
+            "value": null
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "ariaRoleDescription": {
+            "value": "geoshape"
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "geoshape",
+          "projection": "projection"
+        }
+      ]
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "shape",
+      "style": [
+        "geoshape"
+      ],
+      "from": {
+        "data": "data_0"
+      },
+      "encode": {
+        "update": {
+          "fill": {
+            "value": "#ddd"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "tooltip": {
+            "signal": "isValid(datum[\"note\"]) ? datum[\"note\"] : \"\"+datum[\"note\"]"
+          },
+          "ariaRoleDescription": {
+            "value": "geoshape"
+          },
+          "description": {
+            "signal": "\"note: \" + (isValid(datum[\"note\"]) ? datum[\"note\"] : \"\"+datum[\"note\"])"
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "geoshape",
+          "projection": "projection"
+        }
+      ]
+    },
+    {
+      "name": "layer_3_marks",
+      "type": "shape",
+      "style": [
+        "geoshape"
+      ],
+      "from": {
+        "data": "source_3"
+      },
+      "encode": {
+        "update": {
+          "stroke": {
+            "value": "#070707"
+          },
+          "strokeWidth": {
+            "value": 0.7
+          },
+          "fill": {
+            "scale": "color",
+            "field": "School_enrol_sec"
+          },
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"], \"Gross Percentage of Enrollment (%)\": format(datum[\"School_enrol_sec\"], \".2f\"), \"Year\": format(datum[\"Year\"], \"\")}"
+          },
+          "ariaRoleDescription": {
+            "value": "geoshape"
+          },
+          "description": {
+            "signal": "\"School_enrol_sec: \" + (format(datum[\"School_enrol_sec\"], \"\")) + \"; geo: \" + (isValid(datum[\"geo\"]) ? datum[\"geo\"] : \"\"+datum[\"geo\"]) + \"; Country: \" + (isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"]) + \"; Gross Percentage of Enrollment (%): \" + (format(datum[\"School_enrol_sec\"], \".2f\")) + \"; Year: \" + (format(datum[\"Year\"], \"\"))"
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "geoshape",
+          "projection": "projection",
+          "field": "datum[\"geo\"]"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": [
+        0,
+        225
+      ],
+      "range": {
+        "scheme": "lightmulti"
+      },
+      "reverse": true,
+      "interpolate": "hcl",
+      "zero": true
+    }
+  ],
+  "legends": [
+    {
+      "title": "%",
+      "fill": "color",
+      "gradientLength": {
+        "signal": "clamp(height, 64, 200)"
+      }
+    }
+  ],
+  "config": {}
+}

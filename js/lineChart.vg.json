@@ -1,0 +1,586 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 20,
+  "width": 750,
+  "height": 300,
+  "style": "cell",
+  "data": [
+    {
+      "name": "hover_store"
+    },
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/y-tu/FIT3179-Homework-wk10/main/data/Government%20expenditure%20per%20student%2C%20primary%20w%20continent_superFiltered.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "Year": "date"
+        },
+        "delimiter": ","
+      },
+      "transform": [
+        {
+          "type": "identifier",
+          "as": "_vgsid_"
+        },
+        {
+          "type": "filter",
+          "expr": "PartOfWorld_selection == null || datum.Continent == PartOfWorld_selection"
+        },
+        {
+          "type": "filter",
+          "expr": "inrange(time(datetime(year(datum[\"Year\"]), 0, 1, 0, 0, 0, 0)), [time(datetime(Year_Above, 0, 1, 0, 0, 0, 0)), time(datetime(Year_Below, 0, 1, 0, 0, 0, 0))])"
+        }
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "(isDate(datum[\"Year\"]) || (isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]))) && isValid(datum[\"Government_expenditure_per_primary_student_(%)\"]) && isFinite(+datum[\"Government_expenditure_per_primary_student_(%)\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_1",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum['Government_expenditure_per_primary_student_(%)']*1",
+          "as": "exp"
+        },
+        {
+          "type": "window",
+          "params": [
+            null
+          ],
+          "as": [
+            "ranking"
+          ],
+          "ops": [
+            "rank"
+          ],
+          "fields": [
+            null
+          ],
+          "sort": {
+            "field": [
+              "exp"
+            ],
+            "order": [
+              "descending"
+            ]
+          }
+        },
+        {
+          "type": "filter",
+          "expr": "datum.ranking == 1"
+        },
+        {
+          "type": "formula",
+          "expr": "'The highest expenditure throughout;  the whole period is: ' + datum['Government_expenditure_per_primary_student_(%)'] + '%'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "type": "formula",
+          "expr": "split(datum.text_annotation_raw,';')",
+          "as": "text_annotation"
+        },
+        {
+          "type": "filter",
+          "expr": "(isDate(datum[\"Year\"]) || (isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]))) && isValid(datum[\"Government_expenditure_per_primary_student_(%)\"]) && isFinite(+datum[\"Government_expenditure_per_primary_student_(%)\"])"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {
+          "events": "mousemove",
+          "update": "isTuple(group()) ? group() : unit"
+        }
+      ]
+    },
+    {
+      "name": "hover",
+      "update": "vlSelectionResolve(\"hover_store\", \"union\", true, true)"
+    },
+    {
+      "name": "PartOfWorld_selection",
+      "value": "Southeast Asia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "North America",
+          "South America",
+          "EU_no",
+          "EU_yes",
+          "Africa",
+          "Asia",
+          "Southeast Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "North America",
+          "South America",
+          "Europe (Without EU Countries)",
+          "Europe (EU Countries)",
+          "Africa",
+          "Asia (Without ASEAN Countries)",
+          "Southeast Asia (ASEAN)",
+          "Oceania"
+        ],
+        "name": "Part Of The World: "
+      }
+    },
+    {
+      "name": "Year_Above",
+      "value": 1997,
+      "bind": {
+        "input": "range",
+        "min": 1997,
+        "max": 2018,
+        "step": 1,
+        "name": "Year"
+      }
+    },
+    {
+      "name": "Year_Below",
+      "value": 2018,
+      "bind": {
+        "input": "range",
+        "min": 1997,
+        "max": 2018,
+        "step": 1,
+        "name": "Range:"
+      }
+    },
+    {
+      "name": "hover_tuple",
+      "on": [
+        {
+          "events": [
+            {
+              "source": "scope",
+              "type": "mouseover"
+            }
+          ],
+          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_1\", fields: hover_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"_vgsid_\"]]} : null",
+          "force": true
+        },
+        {
+          "events": [
+            {
+              "source": "view",
+              "type": "mouseout"
+            }
+          ],
+          "update": "null"
+        }
+      ]
+    },
+    {
+      "name": "hover_tuple_fields",
+      "value": [
+        {
+          "type": "E",
+          "field": "_vgsid_"
+        }
+      ]
+    },
+    {
+      "name": "hover_toggle",
+      "value": false,
+      "on": [
+        {
+          "events": [
+            {
+              "source": "scope",
+              "type": "mouseover"
+            }
+          ],
+          "update": "event.shiftKey"
+        },
+        {
+          "events": [
+            {
+              "source": "view",
+              "type": "mouseout"
+            }
+          ],
+          "update": "false"
+        }
+      ]
+    },
+    {
+      "name": "hover_modify",
+      "on": [
+        {
+          "events": {
+            "signal": "hover_tuple"
+          },
+          "update": "modify(\"hover_store\", hover_toggle ? null : hover_tuple, hover_toggle ? null : true, hover_toggle ? hover_tuple : null)"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_0_main",
+          "data": "source_0",
+          "groupby": [
+            "Country Name"
+          ]
+        }
+      },
+      "encode": {
+        "update": {
+          "width": {
+            "field": {
+              "group": "width"
+            }
+          },
+          "height": {
+            "field": {
+              "group": "height"
+            }
+          }
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_0_marks",
+          "type": "line",
+          "style": [
+            "line"
+          ],
+          "sort": {
+            "field": "datum[\"Year\"]"
+          },
+          "interactive": false,
+          "from": {
+            "data": "faceted_path_layer_0_main"
+          },
+          "encode": {
+            "update": {
+              "stroke": {
+                "scale": "color",
+                "field": "Country Name"
+              },
+              "opacity": {
+                "value": 0.7
+              },
+              "description": {
+                "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Government Expenditure  (% of GDP Per Capita): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"])"
+              },
+              "x": {
+                "scale": "x",
+                "field": "Year"
+              },
+              "y": {
+                "scale": "y",
+                "field": "Government_expenditure_per_primary_student_(%)"
+              },
+              "defined": {
+                "signal": "isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]) && isValid(datum[\"Government_expenditure_per_primary_student_(%)\"]) && isFinite(+datum[\"Government_expenditure_per_primary_student_(%)\"])"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "symbol",
+      "style": [
+        "circle"
+      ],
+      "interactive": true,
+      "from": {
+        "data": "data_0"
+      },
+      "encode": {
+        "update": {
+          "opacity": [
+            {
+              "test": "length(data(\"hover_store\")) && vlSelectionTest(\"hover_store\", datum)",
+              "value": 1
+            },
+            {
+              "value": 0
+            }
+          ],
+          "fill": {
+            "scale": "color",
+            "field": "Country Name"
+          },
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"], \"Year\": timeFormat(datum[\"Year\"], '%Y'), \"Government expenditure (%)\": format(datum[\"Government_expenditure_per_primary_student_(%)\"], \".2f\"), \"Continent\": isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"]}"
+          },
+          "ariaRoleDescription": {
+            "value": "circle"
+          },
+          "description": {
+            "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Government Expenditure  (% of GDP Per Capita): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"]) + \"; Government Expenditure (%): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Government expenditure (%): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \".2f\")) + \"; Continent: \" + (isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"])"
+          },
+          "x": {
+            "scale": "x",
+            "field": "Year"
+          },
+          "y": {
+            "scale": "y",
+            "field": "Government_expenditure_per_primary_student_(%)"
+          },
+          "size": {
+            "scale": "size",
+            "field": "Government_expenditure_per_primary_student_(%)"
+          },
+          "shape": {
+            "value": "circle"
+          }
+        }
+      }
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "text",
+      "style": [
+        "text"
+      ],
+      "interactive": false,
+      "from": {
+        "data": "data_1"
+      },
+      "encode": {
+        "update": {
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "dx": {
+            "value": 25
+          },
+          "dy": {
+            "value": -40
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontStyle": {
+            "value": "italic"
+          },
+          "fill": {
+            "value": "grey"
+          },
+          "opacity": {
+            "value": 0.7
+          },
+          "description": {
+            "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Government Expenditure  (% of GDP Per Capita): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; text_annotation: \" + (isValid(datum[\"text_annotation\"]) ? datum[\"text_annotation\"] : \"\"+datum[\"text_annotation\"])"
+          },
+          "x": {
+            "scale": "x",
+            "field": "Year"
+          },
+          "y": {
+            "scale": "y",
+            "field": "Government_expenditure_per_primary_student_(%)"
+          },
+          "text": {
+            "signal": "isValid(datum[\"text_annotation\"]) ? datum[\"text_annotation\"] : \"\"+datum[\"text_annotation\"]"
+          }
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "domain": {
+        "fields": [
+          {
+            "data": "source_0",
+            "field": "Year"
+          },
+          {
+            "data": "data_0",
+            "field": "Year"
+          },
+          {
+            "data": "data_1",
+            "field": "Year"
+          }
+        ]
+      },
+      "range": [
+        0,
+        {
+          "signal": "width"
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {
+        "fields": [
+          {
+            "data": "source_0",
+            "field": "Government_expenditure_per_primary_student_(%)"
+          },
+          {
+            "data": "data_0",
+            "field": "Government_expenditure_per_primary_student_(%)"
+          },
+          {
+            "data": "data_1",
+            "field": "Government_expenditure_per_primary_student_(%)"
+          }
+        ]
+      },
+      "range": [
+        {
+          "signal": "height"
+        },
+        0
+      ],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "fields": [
+          {
+            "data": "source_0",
+            "field": "Country Name"
+          },
+          {
+            "data": "data_0",
+            "field": "Country Name"
+          }
+        ],
+        "sort": true
+      },
+      "range": "category"
+    },
+    {
+      "name": "size",
+      "type": "linear",
+      "domain": {
+        "data": "data_0",
+        "field": "Government_expenditure_per_primary_student_(%)"
+      },
+      "range": [
+        0,
+        361
+      ],
+      "zero": true
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "Year",
+      "domain": true,
+      "labelFont": "Open Sans",
+      "labelPadding": 5,
+      "ticks": true,
+      "titleFontSize": 13,
+      "labelFlush": true,
+      "labelOverlap": true,
+      "tickCount": {
+        "signal": "ceil(width/40)"
+      },
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Government Expenditure  (% of GDP Per Capita)",
+      "domain": true,
+      "labelFont": "Open Sans",
+      "labelPadding": 5,
+      "ticks": true,
+      "titleFontSize": 13,
+      "labelOverlap": true,
+      "tickCount": {
+        "signal": "ceil(height/40)"
+      },
+      "zindex": 0
+    }
+  ],
+  "legends": [
+    {
+      "labelFont": "Open Sans",
+      "labelFontSize": 12,
+      "labelLimit": 500,
+      "padding": 20,
+      "title": "Country",
+      "stroke": "color",
+      "symbolType": "circle",
+      "encode": {
+        "symbols": {
+          "update": {
+            "opacity": {
+              "value": 0.7
+            }
+          }
+        }
+      },
+      "fill": "color"
+    },
+    {
+      "labelFont": "Open Sans",
+      "labelFontSize": 12,
+      "labelLimit": 500,
+      "padding": 20,
+      "title": "Government Expenditure (%)",
+      "size": "size",
+      "symbolType": "circle",
+      "encode": {
+        "symbols": {
+          "update": {
+            "fill": {
+              "value": "black"
+            },
+            "fillOpacity": {
+              "value": 1
+            },
+            "opacity": {
+              "value": 1
+            },
+            "stroke": {
+              "value": "transparent"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": null
+      }
+    }
+  }
+}
