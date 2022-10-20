@@ -1,0 +1,1055 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 450,
+  "background": "#f0ecf4",
+  "data": [
+    {
+      "name": "time_brush_store"
+    },
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/y-tu/FIT3179-A2/main/data/pupil_to_teacher_ratio(primary).csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "Region": "string",
+          "Year": "date"
+        },
+        "delimiter": ","
+      }
+    },
+    {
+      "name": "source_1",
+      "values": [
+        {
+          "date": "2015"
+        },
+        {
+          "date": "1983"
+        },
+        {
+          "date": "2001"
+        }
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "indexof([\"East Asia & Pacific\",\"Europe & Central Asia\",\"North America\",\"South Asia\",\"Sub-Saharan Africa\"], datum[\"Region\"]) !== -1"
+        },
+        {
+          "field": "Year",
+          "type": "timeunit",
+          "units": [
+            "year"
+          ],
+          "as": [
+            "year_Year",
+            "year_Year_end"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "data_1",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.Region=='World'"
+        }
+      ]
+    },
+    {
+      "name": "data_2",
+      "source": "data_1",
+      "transform": [
+        {
+          "field": "Year",
+          "type": "timeunit",
+          "units": [
+            "year"
+          ],
+          "as": [
+            "year_Year",
+            "year_Year_end"
+          ]
+        },
+        {
+          "type": "impute",
+          "field": "pupil_teacher",
+          "groupby": [
+            "Region"
+          ],
+          "key": "year_Year",
+          "method": "value",
+          "value": 0
+        },
+        {
+          "type": "stack",
+          "groupby": [
+            "year_Year"
+          ],
+          "field": "pupil_teacher",
+          "sort": {
+            "field": [
+              "Region"
+            ],
+            "order": [
+              "descending"
+            ]
+          },
+          "as": [
+            "pupil_teacher_start",
+            "pupil_teacher_end"
+          ],
+          "offset": "zero"
+        }
+      ]
+    },
+    {
+      "name": "data_3",
+      "source": "data_1",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "'2015: Lowest Pupil; to Teacher Ratio' ",
+          "as": "first_text_annotation_raw"
+        },
+        {
+          "type": "formula",
+          "expr": "split(datum.first_text_annotation_raw, ';')",
+          "as": "first_text_annotation"
+        },
+        {
+          "type": "formula",
+          "expr": "'1983 Highest Pupil:; to Teacher Ratio' ",
+          "as": "second_text_annotation_raw"
+        },
+        {
+          "type": "formula",
+          "expr": "split(datum.second_text_annotation_raw, ';')",
+          "as": "second_text_annotation"
+        },
+        {
+          "type": "formula",
+          "expr": "'2001: No Child Left; Behind Act Passed' ",
+          "as": "third_text_annotation_raw"
+        },
+        {
+          "type": "formula",
+          "expr": "split(datum.third_text_annotation_raw, ';')",
+          "as": "third_text_annotation"
+        }
+      ]
+    },
+    {
+      "name": "data_4",
+      "source": "source_1",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "utcParse(datum[\"date\"],'%Y')",
+          "as": "date"
+        },
+        {
+          "type": "filter",
+          "expr": "(isDate(datum[\"date\"]) || (isValid(datum[\"date\"]) && isFinite(+datum[\"date\"])))"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "concat_0_height",
+      "value": 220
+    },
+    {
+      "name": "concat_1_height",
+      "value": 30
+    },
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {
+          "events": "mousemove",
+          "update": "isTuple(group()) ? group() : unit"
+        }
+      ]
+    },
+    {
+      "name": "time_brush",
+      "update": "vlSelectionResolve(\"time_brush_store\", \"union\")"
+    }
+  ],
+  "layout": {
+    "padding": 20,
+    "columns": 1,
+    "bounds": "full",
+    "align": "each"
+  },
+  "marks": [
+    {
+      "type": "group",
+      "name": "concat_0_group",
+      "style": "cell",
+      "encode": {
+        "update": {
+          "width": {
+            "signal": "width"
+          },
+          "height": {
+            "signal": "concat_0_height"
+          }
+        }
+      },
+      "marks": [
+        {
+          "name": "concat_0_layer_0_pathgroup",
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "faceted_path_concat_0_layer_0_main",
+              "data": "data_0",
+              "groupby": [
+                "Region"
+              ]
+            }
+          },
+          "encode": {
+            "update": {
+              "width": {
+                "field": {
+                  "group": "width"
+                }
+              },
+              "height": {
+                "field": {
+                  "group": "height"
+                }
+              }
+            }
+          },
+          "marks": [
+            {
+              "name": "concat_0_layer_0_marks",
+              "type": "line",
+              "clip": true,
+              "style": [
+                "line"
+              ],
+              "sort": {
+                "field": "datum[\"year_Year\"]"
+              },
+              "interactive": true,
+              "from": {
+                "data": "faceted_path_concat_0_layer_0_main"
+              },
+              "encode": {
+                "update": {
+                  "stroke": {
+                    "scale": "color",
+                    "field": "Region"
+                  },
+                  "tooltip": {
+                    "signal": "{\"World Region\": isValid(datum[\"Region\"]) ? datum[\"Region\"] : \"\"+datum[\"Region\"], \"Pupil To Teacher Ratio\": format(datum[\"pupil_teacher\"], \".2f\")}"
+                  },
+                  "description": {
+                    "signal": "\"Year (year): \" + (timeFormat(datum[\"year_Year\"], timeUnitSpecifier([\"year\"], {\"year-month\":\"%b %Y \",\"year-month-date\":\"%b %d, %Y \"}))) + \"; Pupil To Teacher Ratio: \" + (format(datum[\"pupil_teacher\"], \"\")) + \"; World Region: \" + (isValid(datum[\"Region\"]) ? datum[\"Region\"] : \"\"+datum[\"Region\"])"
+                  },
+                  "x": {
+                    "scale": "concat_0_x",
+                    "field": "year_Year"
+                  },
+                  "y": {
+                    "scale": "concat_0_y",
+                    "field": "pupil_teacher"
+                  },
+                  "defined": {
+                    "signal": "isValid(datum[\"year_Year\"]) && isFinite(+datum[\"year_Year\"]) && isValid(datum[\"pupil_teacher\"]) && isFinite(+datum[\"pupil_teacher\"])"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "scale": "concat_0_x",
+          "orient": "bottom",
+          "grid": false,
+          "domain": true,
+          "labelFont": "Open Sans",
+          "labelPadding": 5,
+          "ticks": true,
+          "format": {
+            "signal": "timeUnitSpecifier([\"year\"], {\"year-month\":\"%b %Y \",\"year-month-date\":\"%b %d, %Y \"})"
+          },
+          "labelFlush": true,
+          "labelOverlap": true,
+          "tickCount": {
+            "signal": "ceil(width/40)"
+          },
+          "zindex": 0
+        },
+        {
+          "scale": "concat_0_y",
+          "orient": "left",
+          "grid": false,
+          "title": "Pupil To Teacher Ratio",
+          "domain": true,
+          "labelFont": "Open Sans",
+          "labelPadding": 5,
+          "ticks": true,
+          "titleFontSize": 13,
+          "labelOverlap": true,
+          "tickCount": {
+            "signal": "ceil(concat_0_height/40)"
+          },
+          "zindex": 0
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "concat_1_group",
+      "style": "cell",
+      "encode": {
+        "update": {
+          "width": {
+            "signal": "width"
+          },
+          "height": {
+            "signal": "concat_1_height"
+          }
+        }
+      },
+      "signals": [
+        {
+          "name": "time_brush_x",
+          "value": [],
+          "on": [
+            {
+              "events": {
+                "source": "scope",
+                "type": "mousedown",
+                "filter": [
+                  "!event.item || event.item.mark.name !== \"time_brush_brush\""
+                ]
+              },
+              "update": "[x(unit), x(unit)]"
+            },
+            {
+              "events": {
+                "source": "window",
+                "type": "mousemove",
+                "consume": true,
+                "between": [
+                  {
+                    "source": "scope",
+                    "type": "mousedown",
+                    "filter": [
+                      "!event.item || event.item.mark.name !== \"time_brush_brush\""
+                    ]
+                  },
+                  {
+                    "source": "window",
+                    "type": "mouseup"
+                  }
+                ]
+              },
+              "update": "[time_brush_x[0], clamp(x(unit), 0, width)]"
+            },
+            {
+              "events": {
+                "signal": "time_brush_scale_trigger"
+              },
+              "update": "[scale(\"concat_1_x\", time_brush_year_Year[0]), scale(\"concat_1_x\", time_brush_year_Year[1])]"
+            },
+            {
+              "events": [
+                {
+                  "source": "view",
+                  "type": "dblclick"
+                }
+              ],
+              "update": "[0, 0]"
+            },
+            {
+              "events": {
+                "signal": "time_brush_translate_delta"
+              },
+              "update": "clampRange(panLinear(time_brush_translate_anchor.extent_x, time_brush_translate_delta.x / span(time_brush_translate_anchor.extent_x)), 0, width)"
+            },
+            {
+              "events": {
+                "signal": "time_brush_zoom_delta"
+              },
+              "update": "clampRange(zoomLinear(time_brush_x, time_brush_zoom_anchor.x, time_brush_zoom_delta), 0, width)"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_year_Year",
+          "on": [
+            {
+              "events": {
+                "signal": "time_brush_x"
+              },
+              "update": "time_brush_x[0] === time_brush_x[1] ? null : invert(\"concat_1_x\", time_brush_x)"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_scale_trigger",
+          "value": {},
+          "on": [
+            {
+              "events": [
+                {
+                  "scale": "concat_1_x"
+                }
+              ],
+              "update": "(!isArray(time_brush_year_Year) || (+invert(\"concat_1_x\", time_brush_x)[0] === +time_brush_year_Year[0] && +invert(\"concat_1_x\", time_brush_x)[1] === +time_brush_year_Year[1])) ? time_brush_scale_trigger : {}"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_tuple",
+          "on": [
+            {
+              "events": [
+                {
+                  "signal": "time_brush_year_Year"
+                }
+              ],
+              "update": "time_brush_year_Year ? {unit: \"concat_1_layer_0\", fields: time_brush_tuple_fields, values: [time_brush_year_Year]} : null"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_tuple_fields",
+          "value": [
+            {
+              "field": "year_Year",
+              "channel": "x",
+              "type": "R"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_translate_anchor",
+          "value": {},
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "mousedown",
+                  "markname": "time_brush_brush"
+                }
+              ],
+              "update": "{x: x(unit), y: y(unit), extent_x: slice(time_brush_x)}"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_translate_delta",
+          "value": {},
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "window",
+                  "type": "mousemove",
+                  "consume": true,
+                  "between": [
+                    {
+                      "source": "scope",
+                      "type": "mousedown",
+                      "markname": "time_brush_brush"
+                    },
+                    {
+                      "source": "window",
+                      "type": "mouseup"
+                    }
+                  ]
+                }
+              ],
+              "update": "{x: time_brush_translate_anchor.x - x(unit), y: time_brush_translate_anchor.y - y(unit)}"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_zoom_anchor",
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "wheel",
+                  "consume": true,
+                  "markname": "time_brush_brush"
+                }
+              ],
+              "update": "{x: x(unit), y: y(unit)}"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_zoom_delta",
+          "on": [
+            {
+              "events": [
+                {
+                  "source": "scope",
+                  "type": "wheel",
+                  "consume": true,
+                  "markname": "time_brush_brush"
+                }
+              ],
+              "force": true,
+              "update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
+            }
+          ]
+        },
+        {
+          "name": "time_brush_modify",
+          "on": [
+            {
+              "events": {
+                "signal": "time_brush_tuple"
+              },
+              "update": "modify(\"time_brush_store\", time_brush_tuple, true)"
+            }
+          ]
+        }
+      ],
+      "marks": [
+        {
+          "name": "time_brush_brush_bg",
+          "type": "rect",
+          "clip": true,
+          "encode": {
+            "enter": {
+              "fill": {
+                "value": "#333"
+              },
+              "fillOpacity": {
+                "value": 0.125
+              }
+            },
+            "update": {
+              "x": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "signal": "time_brush_x[0]"
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "y": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "value": 0
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "x2": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "signal": "time_brush_x[1]"
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "y2": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "field": {
+                    "group": "height"
+                  }
+                },
+                {
+                  "value": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "concat_1_layer_0_pathgroup",
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "faceted_path_concat_1_layer_0_main",
+              "data": "data_2",
+              "groupby": [
+                "Region"
+              ]
+            }
+          },
+          "encode": {
+            "update": {
+              "width": {
+                "field": {
+                  "group": "width"
+                }
+              },
+              "height": {
+                "field": {
+                  "group": "height"
+                }
+              }
+            }
+          },
+          "marks": [
+            {
+              "name": "concat_1_layer_0_marks",
+              "type": "area",
+              "style": [
+                "area"
+              ],
+              "sort": {
+                "field": "datum[\"year_Year\"]"
+              },
+              "interactive": true,
+              "from": {
+                "data": "faceted_path_concat_1_layer_0_main"
+              },
+              "encode": {
+                "update": {
+                  "orient": {
+                    "value": "vertical"
+                  },
+                  "fill": {
+                    "scale": "color",
+                    "field": "Region"
+                  },
+                  "description": {
+                    "signal": "\"Year: \" + (timeFormat(datum[\"year_Year\"], timeUnitSpecifier([\"year\"], {\"year-month\":\"%b %Y \",\"year-month-date\":\"%b %d, %Y \"}))) + \"; pupil_teacher: \" + (format(datum[\"pupil_teacher\"], \"\")) + \"; Region: \" + (isValid(datum[\"Region\"]) ? datum[\"Region\"] : \"\"+datum[\"Region\"])"
+                  },
+                  "x": {
+                    "scale": "concat_1_x",
+                    "field": "year_Year"
+                  },
+                  "y": {
+                    "scale": "concat_1_y",
+                    "field": "pupil_teacher_end"
+                  },
+                  "y2": {
+                    "scale": "concat_1_y",
+                    "field": "pupil_teacher_start"
+                  },
+                  "defined": {
+                    "signal": "isValid(datum[\"year_Year\"]) && isFinite(+datum[\"year_Year\"]) && isValid(datum[\"pupil_teacher\"]) && isFinite(+datum[\"pupil_teacher\"])"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "concat_1_layer_1_layer_0_marks",
+          "type": "rule",
+          "style": [
+            "rule"
+          ],
+          "interactive": false,
+          "from": {
+            "data": "data_4"
+          },
+          "encode": {
+            "update": {
+              "stroke": {
+                "value": "#878787"
+              },
+              "description": {
+                "signal": "\"date: \" + (timeFormat(datum[\"date\"], '%b %d, %Y'))"
+              },
+              "x": {
+                "scale": "concat_1_x",
+                "field": "date"
+              },
+              "y": {
+                "value": 0
+              },
+              "y2": {
+                "field": {
+                  "group": "height"
+                }
+              },
+              "strokeWidth": {
+                "value": 2
+              }
+            }
+          }
+        },
+        {
+          "name": "concat_1_layer_1_layer_1_layer_0_marks",
+          "type": "text",
+          "style": [
+            "text"
+          ],
+          "interactive": false,
+          "from": {
+            "data": "data_3"
+          },
+          "encode": {
+            "update": {
+              "align": {
+                "value": "right"
+              },
+              "baseline": {
+                "value": "top"
+              },
+              "dx": {
+                "value": 250
+              },
+              "dy": {
+                "value": -60
+              },
+              "fontSize": {
+                "value": 11
+              },
+              "fontWeight": {
+                "value": 200
+              },
+              "fill": {
+                "value": "#878787"
+              },
+              "description": {
+                "signal": "\"first_text_annotation: \" + (isValid(datum[\"first_text_annotation\"]) ? datum[\"first_text_annotation\"] : \"\"+datum[\"first_text_annotation\"])"
+              },
+              "x": {
+                "signal": "width",
+                "mult": 0.5
+              },
+              "y": {
+                "signal": "concat_1_height",
+                "mult": 0.5
+              },
+              "text": {
+                "signal": "isValid(datum[\"first_text_annotation\"]) ? datum[\"first_text_annotation\"] : \"\"+datum[\"first_text_annotation\"]"
+              }
+            }
+          }
+        },
+        {
+          "name": "concat_1_layer_1_layer_1_layer_1_marks",
+          "type": "text",
+          "style": [
+            "text"
+          ],
+          "interactive": false,
+          "from": {
+            "data": "data_3"
+          },
+          "encode": {
+            "update": {
+              "align": {
+                "value": "right"
+              },
+              "baseline": {
+                "value": "top"
+              },
+              "dx": {
+                "value": -191
+              },
+              "dy": {
+                "value": -60
+              },
+              "fontSize": {
+                "value": 11
+              },
+              "fill": {
+                "value": "#878787"
+              },
+              "description": {
+                "signal": "\"second_text_annotation: \" + (isValid(datum[\"second_text_annotation\"]) ? datum[\"second_text_annotation\"] : \"\"+datum[\"second_text_annotation\"])"
+              },
+              "x": {
+                "signal": "width",
+                "mult": 0.5
+              },
+              "y": {
+                "signal": "concat_1_height",
+                "mult": 0.5
+              },
+              "text": {
+                "signal": "isValid(datum[\"second_text_annotation\"]) ? datum[\"second_text_annotation\"] : \"\"+datum[\"second_text_annotation\"]"
+              }
+            }
+          }
+        },
+        {
+          "name": "concat_1_layer_1_layer_1_layer_2_marks",
+          "type": "text",
+          "style": [
+            "text"
+          ],
+          "interactive": false,
+          "from": {
+            "data": "data_3"
+          },
+          "encode": {
+            "update": {
+              "align": {
+                "value": "right"
+              },
+              "baseline": {
+                "value": "top"
+              },
+              "dx": {
+                "value": 50
+              },
+              "dy": {
+                "value": -60
+              },
+              "fontSize": {
+                "value": 11
+              },
+              "fill": {
+                "value": "#878787"
+              },
+              "description": {
+                "signal": "\"third_text_annotation: \" + (isValid(datum[\"third_text_annotation\"]) ? datum[\"third_text_annotation\"] : \"\"+datum[\"third_text_annotation\"])"
+              },
+              "x": {
+                "signal": "width",
+                "mult": 0.5
+              },
+              "y": {
+                "signal": "concat_1_height",
+                "mult": 0.5
+              },
+              "text": {
+                "signal": "isValid(datum[\"third_text_annotation\"]) ? datum[\"third_text_annotation\"] : \"\"+datum[\"third_text_annotation\"]"
+              }
+            }
+          }
+        },
+        {
+          "name": "time_brush_brush",
+          "type": "rect",
+          "clip": true,
+          "encode": {
+            "enter": {
+              "fill": {
+                "value": "transparent"
+              }
+            },
+            "update": {
+              "x": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "signal": "time_brush_x[0]"
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "y": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "value": 0
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "x2": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "signal": "time_brush_x[1]"
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "y2": [
+                {
+                  "test": "data(\"time_brush_store\").length && data(\"time_brush_store\")[0].unit === \"concat_1_layer_0\"",
+                  "field": {
+                    "group": "height"
+                  }
+                },
+                {
+                  "value": 0
+                }
+              ],
+              "stroke": [
+                {
+                  "test": "time_brush_x[0] !== time_brush_x[1]",
+                  "value": "white"
+                },
+                {
+                  "value": null
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "axes": [
+        {
+          "scale": "concat_1_x",
+          "orient": "bottom",
+          "grid": false,
+          "title": "Year",
+          "domain": true,
+          "labelFont": "Open Sans",
+          "labelPadding": 5,
+          "ticks": true,
+          "titleFontSize": 13,
+          "format": {
+            "signal": "timeUnitSpecifier([\"year\"], {\"year-month\":\"%b %Y \",\"year-month-date\":\"%b %d, %Y \"})"
+          },
+          "labelFlush": true,
+          "labelOverlap": true,
+          "tickCount": {
+            "signal": "ceil(width/40)"
+          },
+          "zindex": 0
+        },
+        {
+          "scale": "concat_1_y",
+          "orient": "left",
+          "grid": false,
+          "domain": true,
+          "labelFont": "Open Sans",
+          "labelPadding": 5,
+          "ticks": true,
+          "titleFontSize": 13,
+          "labelOverlap": true,
+          "tickCount": {
+            "signal": "ceil(concat_1_height/40)"
+          },
+          "zindex": 0
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "East Asia & Pacific",
+        "Europe & Central Asia",
+        "North America",
+        "South Asia",
+        "Sub-Saharan Africa",
+        "World"
+      ],
+      "range": [
+        "#dfc27d",
+        "#35978f",
+        "#01665e",
+        "#8c510a",
+        "#bf812d",
+        "#c7eae5"
+      ]
+    },
+    {
+      "name": "concat_0_x",
+      "type": "time",
+      "domain": {
+        "data": "data_0",
+        "field": "year_Year"
+      },
+      "domainRaw": {
+        "signal": "time_brush[\"year_Year\"]"
+      },
+      "range": [
+        0,
+        {
+          "signal": "width"
+        }
+      ]
+    },
+    {
+      "name": "concat_0_y",
+      "type": "linear",
+      "domain": {
+        "data": "data_0",
+        "field": "pupil_teacher"
+      },
+      "range": [
+        {
+          "signal": "concat_0_height"
+        },
+        0
+      ],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "concat_1_x",
+      "type": "time",
+      "domain": {
+        "fields": [
+          {
+            "data": "data_2",
+            "field": "year_Year"
+          },
+          {
+            "data": "data_4",
+            "field": "date"
+          }
+        ]
+      },
+      "range": [
+        0,
+        {
+          "signal": "width"
+        }
+      ]
+    },
+    {
+      "name": "concat_1_y",
+      "type": "linear",
+      "domain": {
+        "data": "data_2",
+        "fields": [
+          "pupil_teacher_start",
+          "pupil_teacher_end"
+        ]
+      },
+      "range": [
+        {
+          "signal": "concat_1_height"
+        },
+        0
+      ],
+      "nice": true,
+      "zero": true
+    }
+  ],
+  "legends": [
+    {
+      "title": "World Region",
+      "stroke": "color",
+      "symbolType": "circle",
+      "fill": "color"
+    }
+  ],
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": null
+      }
+    }
+  }
+}

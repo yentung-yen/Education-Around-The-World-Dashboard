@@ -45,7 +45,7 @@
     "size": {"field": "Pop_0_14", "type": "quantitative", "title": "Population Proportion Aged 0-14 (%)","legend":{"titleLimit":500, "padding": 10}},
     "opacity": {"condition": {"param": "continent_highlight", "value": 0.6},"value": 0.1},
     "tooltip": [
-      {"field": "Country", "type": "nominal"},
+      {"field": "Country ", "type": "nominal"},
       {"field": "Year", "type": "quantitative"},
       {"field": "unemployment_rate", "type": "quantitative", "format": ".2f","title": "Unemployment Rate (%)"},
       {"field": "pri_completion_rate", "type": "quantitative", "format": ".2f","title": "Primary Completion Rate (%)"},
@@ -55,11 +55,4 @@
   }
   }
   ]
-  
-
-
-
- 
-    
-  
 }

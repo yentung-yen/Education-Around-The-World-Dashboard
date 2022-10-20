@@ -4,6 +4,7 @@
   "padding": 5,
   "width": 500,
   "height": 300,
+  "background": "#f0ecf4",
   "title": {
     "text": "Preprimary Education",
     "fontSize": 14,

@@ -2,8 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 20,
-  "width": 750,
-  "height": 300,
+  "width": 450,
+  "height": 250,
+  "background": "#f0ecf4",
   "style": "cell",
   "data": [
     {
@@ -82,7 +83,7 @@
         },
         {
           "type": "formula",
-          "expr": "'The highest expenditure throughout;  the whole period is: ' + datum['Government_expenditure_per_primary_student_(%)'] + '%'",
+          "expr": "'The highest expenditure ;  throughout the whole ; period is: ' + datum['Government_expenditure_per_primary_student_(%)'] + '%'",
           "as": "text_annotation_raw"
         },
         {
@@ -137,7 +138,7 @@
           "Southeast Asia (ASEAN)",
           "Oceania"
         ],
-        "name": "Part Of The World: "
+        "name": "World Region: "
       }
     },
     {
@@ -148,7 +149,7 @@
         "min": 1997,
         "max": 2018,
         "step": 1,
-        "name": "Year"
+        "name": "Year Above:"
       }
     },
     {
@@ -159,7 +160,7 @@
         "min": 1997,
         "max": 2018,
         "step": 1,
-        "name": "Range:"
+        "name": "Year Below :"
       }
     },
     {
@@ -332,7 +333,7 @@
             "value": "circle"
           },
           "description": {
-            "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Government Expenditure  (% of GDP Per Capita): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"]) + \"; Government Expenditure (%): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Government expenditure (%): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \".2f\")) + \"; Continent: \" + (isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"])"
+            "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Government Expenditure  (% of GDP Per Capita): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country Name\"]) ? datum[\"Country Name\"] : \"\"+datum[\"Country Name\"]) + \"; Government_expenditure_per_primary_student_(%): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \"\")) + \"; Government expenditure (%): \" + (format(datum[\"Government_expenditure_per_primary_student_(%)\"], \".2f\")) + \"; Continent: \" + (isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"])"
           },
           "x": {
             "scale": "x",
@@ -371,10 +372,10 @@
             "value": "middle"
           },
           "dx": {
-            "value": 25
+            "value": 10
           },
           "dy": {
-            "value": -40
+            "value": -50
           },
           "fontSize": {
             "value": 15
@@ -383,7 +384,7 @@
             "value": "italic"
           },
           "fill": {
-            "value": "grey"
+            "value": "black"
           },
           "opacity": {
             "value": 0.7
@@ -531,9 +532,8 @@
   "legends": [
     {
       "labelFont": "Open Sans",
-      "labelFontSize": 12,
       "labelLimit": 500,
-      "padding": 20,
+      "padding": 50,
       "title": "Country",
       "stroke": "color",
       "symbolType": "circle",
@@ -547,33 +547,6 @@
         }
       },
       "fill": "color"
-    },
-    {
-      "labelFont": "Open Sans",
-      "labelFontSize": 12,
-      "labelLimit": 500,
-      "padding": 20,
-      "title": "Government Expenditure (%)",
-      "size": "size",
-      "symbolType": "circle",
-      "encode": {
-        "symbols": {
-          "update": {
-            "fill": {
-              "value": "black"
-            },
-            "fillOpacity": {
-              "value": 1
-            },
-            "opacity": {
-              "value": 1
-            },
-            "stroke": {
-              "value": "transparent"
-            }
-          }
-        }
-      }
     }
   ],
   "config": {
