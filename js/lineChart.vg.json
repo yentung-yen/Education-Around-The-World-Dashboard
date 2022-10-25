@@ -121,10 +121,10 @@
         "options": [
           "North America",
           "South America",
-          "EU_no",
-          "EU_yes",
+          "Europe (Without EU Countries)",
+          "EU Country",
           "Africa",
-          "Asia",
+          "Asia (Without ASEAN Countries)",
           "Southeast Asia",
           "Oceania"
         ],

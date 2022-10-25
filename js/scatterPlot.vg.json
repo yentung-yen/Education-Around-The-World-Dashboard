@@ -161,7 +161,7 @@
             "field": "Continent"
           },
           "tooltip": {
-            "signal": "{\"Country \": isValid(datum[\"Country \"]) ? datum[\"Country \"] : \"\"+datum[\"Country \"], \"Year\": format(datum[\"Year\"], \"\"), \"Unemployment Rate (%)\": format(datum[\"unemployment_rate\"], \".2f\"), \"Primary Completion Rate (%)\": format(datum[\"pri_completion_rate\"], \".2f\"), \"Population size\": format(datum[\"Pop_0_14\"], \".2f\"), \"Continent\": isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"]}"
+            "signal": "{\"Country \": isValid(datum[\"Country \"]) ? datum[\"Country \"] : \"\"+datum[\"Country \"], \"Year\": format(datum[\"Year\"], \"\"), \"Unemployment Rate (%)\": format(datum[\"unemployment_rate\"], \".2f\"), \"Primary Completion Rate (%)\": format(datum[\"pri_completion_rate\"], \".2f\"), \"Population size (%)\": format(datum[\"Pop_0_14\"], \".2f\"), \"Continent\": isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"]}"
           },
           "ariaRoleDescription": {
             "value": "circle"
