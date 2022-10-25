@@ -167,7 +167,7 @@
             "value": "circle"
           },
           "description": {
-            "signal": "\"Unemployment Rate (% of total labor force): \" + (format(datum[\"unemployment_rate\"], \"\")) + \"; Primary Completion Rate (% of relevant age group): \" + (format(datum[\"pri_completion_rate\"], \"\")) + \"; Continent: \" + (isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"]) + \"; Population Proportion Aged 0-14 (%): \" + (format(datum[\"Pop_0_14\"], \"\")) + \"; Country : \" + (isValid(datum[\"Country \"]) ? datum[\"Country \"] : \"\"+datum[\"Country \"]) + \"; Year: \" + (format(datum[\"Year\"], \"\")) + \"; Unemployment Rate (%): \" + (format(datum[\"unemployment_rate\"], \".2f\")) + \"; Primary Completion Rate (%): \" + (format(datum[\"pri_completion_rate\"], \".2f\")) + \"; Population size: \" + (format(datum[\"Pop_0_14\"], \".2f\"))"
+            "signal": "\"Unemployment Rate (% of total labor force): \" + (format(datum[\"unemployment_rate\"], \"\")) + \"; Primary Completion Rate (% of relevant age group): \" + (format(datum[\"pri_completion_rate\"], \"\")) + \"; Continent: \" + (isValid(datum[\"Continent\"]) ? datum[\"Continent\"] : \"\"+datum[\"Continent\"]) + \"; Population Proportion Aged 0-14 (%): \" + (format(datum[\"Pop_0_14\"], \"\")) + \"; Country : \" + (isValid(datum[\"Country \"]) ? datum[\"Country \"] : \"\"+datum[\"Country \"]) + \"; Year: \" + (format(datum[\"Year\"], \"\")) + \"; Unemployment Rate (%): \" + (format(datum[\"unemployment_rate\"], \".2f\")) + \"; Primary Completion Rate (%): \" + (format(datum[\"pri_completion_rate\"], \".2f\")) + \"; Population size (%): \" + (format(datum[\"Pop_0_14\"], \".2f\"))"
           },
           "x": {
             "scale": "x",
