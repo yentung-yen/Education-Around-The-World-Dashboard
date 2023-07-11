@@ -12,7 +12,7 @@
     },
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/y-tu/FIT3179-A2/main/data/pri_complete_rate_VS_unemployment_rate_VS_pop.csv",
+      "url": "https://raw.githubusercontent.com/yentung-yen/FIT3179-A2/main/data/pri_complete_rate_VS_unemployment_rate_VS_pop.csv",
       "format": {
         "type": "csv",
         "delimiter": ","

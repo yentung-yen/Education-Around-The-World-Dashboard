@@ -15,7 +15,7 @@
   "data": [
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/y-tu/FIT3179/main/Homework_wk9/js/oceans.topojson",
+      "url": "https://raw.githubusercontent.com/yentung-yen/FIT3179-A2/main/js/oceans.topojson",
       "format": {
         "type": "topojson",
         "feature": "oceans"
@@ -23,7 +23,7 @@
     },
     {
       "name": "source_1",
-      "url": "https://raw.githubusercontent.com/y-tu/FIT3179/main/Homework_wk9/js/WorldMapWithGraticules.topojson",
+      "url": "https://raw.githubusercontent.com/yentung-yen/FIT3179-A2/main/js/WorldMapWithGraticules.topojson",
       "format": {
         "type": "topojson",
         "feature": "ne_110m_graticules_30"
@@ -31,7 +31,7 @@
     },
     {
       "name": "source_2",
-      "url": "https://raw.githubusercontent.com/y-tu/FIT3179/main/Homework_wk9/js/ne_110m_admin_0_countries.topojson",
+      "url": "https://raw.githubusercontent.com/yentung-yen/FIT3179-A2/main/js/ne_110m_admin_0_countries.topojson",
       "format": {
         "type": "topojson",
         "feature": "ne_110m_admin_0_countries"
@@ -50,7 +50,7 @@
     },
     {
       "name": "source_3",
-      "url": "https://raw.githubusercontent.com/y-tu/FIT3179-A2/main/data/School%20enrol%2C%20tertiary%20(%25%20gross).csv",
+      "url": "https://raw.githubusercontent.com/yentung-yen/FIT3179-A2/main/data/School%20enrol%2C%20tertiary%20(%25%20gross).csv",
       "format": {
         "type": "csv",
         "delimiter": ","

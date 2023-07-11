@@ -10,7 +10,7 @@
     },
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/y-tu/FIT3179-A2/main/data/pupil_to_teacher_ratio(primary).csv",
+      "url": "https://raw.githubusercontent.com/yentung-yen/FIT3179-A2/main/data/pupil_to_teacher_ratio(primary).csv",
       "format": {
         "type": "csv",
         "parse": {
